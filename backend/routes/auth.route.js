@@ -6,11 +6,11 @@ const route = express.Router();
 //     res.send('signup is ready ');
 // });
 
-route.get('/signup',singup);
+route.post('/signup',singup);
 
-route.get('/login',login);
+route.post('/login',login);
 
-route.get('/logout',logout);
+route.post('/logout',logout);
 
 export default route;
 

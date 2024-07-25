@@ -9,7 +9,10 @@ import { connectDB } from './config/db.js';
 
 
 const app = express();
-const PORT = ENC_VARS.PORT|| 3000;
+const PORT = ENC_VARS.PORT;
+
+// will allows us to use the req.body in the web body
+app.use(express.json());
 
 // console.log("MONGO_URI",process.env.MONGO_URI);
 app.use("/api/v1/auth",authRoutes);
