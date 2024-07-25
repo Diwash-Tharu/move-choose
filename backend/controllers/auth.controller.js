@@ -40,6 +40,16 @@ export async function singup(req, res) {
     })
     await newUser.save();
 
+    res.status(200).json({success:true,
+        user:{
+            ...newUser._doc,
+            // username: newUser.username,
+            // email: newUser.email,
+            // image: newUser.image
+            password: ""
+        },
+        message: "User created successfully"});
+
 }
     catch(error){ 
         console.log("Error in creating the user",error);
