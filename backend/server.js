@@ -24,5 +24,18 @@ app.listen(PORT, () => {
 }); 
 
 
+const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer'+ ENC_VARS.TMDB_API_KEY
+    }
+  };
+  
+  fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
+
 // time of the video
 // 54:31 / 6:52:54
