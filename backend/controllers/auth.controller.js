@@ -1,5 +1,7 @@
 import { User}  from '../models/user.model.js';
 import bcrypt from 'bcryptjs';
+import { genearateTokenAndSetCookie } from '../utils/generateToken.js';
+
 export async function singup(req, res) {
     // res.send('signup is ready');
     try{
@@ -48,11 +50,13 @@ export async function singup(req, res) {
 
     })
 
-    // if(newUser){
-        genearateTokenAndSetCookie(newUser._id, res);
+    genearateTokenAndSetCookie(newUser._id, res);
+
+        // genearateTokenAndSetCookie(newUser._id, res);
         await newUser.save();
 
-        res.status(200).json({success:true,
+        res.status(200).json({
+            success:true,
             user:{
                 ...newUser._doc,
                 // username: newUser.username,
@@ -63,18 +67,11 @@ export async function singup(req, res) {
             message: "User created successfully"});
 
     }
-
-    // else
-    // {
-    //     res.status(500).json({ success:false,message: "internal server error"});
-    // }
-
-}
-    catch(error){ 
-        console.log("Error in creating the user",error);
-        res.status(500).json({ success:false,message: "internal server error  plus  the device error " + error.message});
+        catch(error){ 
+            console.log("Error in creating the user",error);
+            res.status(500).json({ success:false,message: "internal server error  plus  the device error " + error.message});
     }
-   
+
 }
 
 export async function login(req, res) {
