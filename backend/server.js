@@ -16,6 +16,8 @@ app.use(express.json());
 
 // console.log("MONGO_URI",process.env.MONGO_URI);
 app.use("/api/v1/auth",authRoutes);
+app.use("/api/v1/move",authRoutes);
+
 
 
 app.listen(PORT, () => {
@@ -26,4 +28,4 @@ app.listen(PORT, () => {
 
 
 // time of the video
-// 54:31 / 6:52:54
+// 1:18:11 / 6:52:54
