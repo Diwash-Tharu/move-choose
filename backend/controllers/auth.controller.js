@@ -79,5 +79,16 @@ export async function login(req, res) {
 }
 
 export async function logout(req, res) {
-    res.send('logout is ready');
+    // res.send('logout is ready');
+    try{
+
+        res.clearCookie('jtw-netflix');
+
+        res.status(200).json({ success:true,message: "User logged out successfully"});
+    }
+    catch(error){
+        console.log("Error in logging out the user",error);
+        res.status(500).json({ success:false,message: "internal server error  plus  the device error " + error.message});
+    }
 }
+
