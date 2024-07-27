@@ -47,17 +47,27 @@ export async function singup(req, res) {
         image: image
 
     })
-    await newUser.save();
 
-    res.status(200).json({success:true,
-        user:{
-            ...newUser._doc,
-            // username: newUser.username,
-            // email: newUser.email,
-            // image: newUser.image
-            password: ""
-        },
-        message: "User created successfully"});
+    // if(newUser){
+        genearateTokenAndSetCookie(newUser._id, res);
+        await newUser.save();
+
+        res.status(200).json({success:true,
+            user:{
+                ...newUser._doc,
+                // username: newUser.username,
+                // email: newUser.email,
+                // image: newUser.image
+                password: ""
+            },
+            message: "User created successfully"});
+
+    }
+
+    // else
+    // {
+    //     res.status(500).json({ success:false,message: "internal server error"});
+    // }
 
 }
     catch(error){ 

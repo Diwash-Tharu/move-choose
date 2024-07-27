@@ -10,4 +10,6 @@ export const generateTokenAndSetCookie = (userID, res) => {
     samaSite: "strict", // csRF sttacks cross-site request forgery
     secure:ENV_VARS.NODE_ENV !== 'development' // only works in production mode
 });
+
+return token;
 }
