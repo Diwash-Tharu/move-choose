@@ -1,4 +1,5 @@
 import express from 'express';
+import { getTrandingMovie } from '../controllers/movie.contoller.js';
 
 const router = express.Router();
 
