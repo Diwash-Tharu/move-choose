@@ -3,6 +3,8 @@ import express from 'express';
 // import dotenv from 'dotenv';
 
 import authRoutes from './routes/auth.route.js';
+import moviesRoutes from './routes/movies.route.js';
+// dotenv.config();
 import { ENC_VARS } from './config/envVars.js';
 import { connect } from 'mongoose';
 import { connectDB } from './config/db.js';
@@ -16,7 +18,7 @@ app.use(express.json());
 
 // console.log("MONGO_URI",process.env.MONGO_URI);
 app.use("/api/v1/auth",authRoutes);
-app.use("/api/v1/move",authRoutes);
+app.use("/api/v1/move",moviesRoutes);
 
 
 
