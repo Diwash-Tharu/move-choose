@@ -22,3 +22,7 @@ app.listen(PORT, () => {
     console.log('server is running on port :localhost' + PORT);
     connectDB();
 }); 
+
+
+// time of the video
+// 54:31 / 6:52:54
