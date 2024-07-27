@@ -3,7 +3,7 @@ import express from 'express';
 // import dotenv from 'dotenv';
 
 import authRoutes from './routes/auth.route.js';
-import moviesRoutes from './routes/movies.route.js';
+import moviesRoutes from './routes/movie.route.js';
 // dotenv.config();
 import { ENC_VARS } from './config/envVars.js';
 import { connect } from 'mongoose';
