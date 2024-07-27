@@ -75,7 +75,39 @@ export async function singup(req, res) {
 }
 
 export async function login(req, res) {
-    res.send('login is ready diwaash');
+    try{
+
+        const{email, password} = req.body;
+        if(!email || !password){
+            return res.status(400).json({message: 'please fill all the fields'});
+        }
+
+        const user= await User.findOne({email: email});
+        if(!user){
+            return res.status(400).json({message: 'Invalid credentials'});
+        }
+
+        const isMatch = await bcrypt.compare(password, user.password);
+        if(!isMatch){
+            return res.status(400).json({message: 'Invalid credentials'});
+        }
+
+        genearateTokenAndSetCookie(user._id, res);
+        res.status(200).json({
+            success:true,
+            user:{
+                ...user._doc,
+                password: ""
+            },
+            message: "User logged in successfully"
+        });
+
+    }
+
+    catch(error){
+        console.log("Error in logging in the user",error);
+        res.status(500).json({ success:false,message: "internal server error  plus  the device error " + error.message});
+    }
 }
 
 export async function logout(req, res) {
