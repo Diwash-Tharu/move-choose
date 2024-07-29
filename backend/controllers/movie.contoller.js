@@ -9,3 +9,7 @@ export async function getTrandingMovie(req, res) {
     res.status(500).json({success:false, message: "error from controller"+ error.message });
   }
 }
+
+export async function getMovieTrailers(req, res) {
+
+}
