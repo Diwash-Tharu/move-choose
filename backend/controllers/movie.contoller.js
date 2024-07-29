@@ -12,4 +12,13 @@ export async function getTrandingMovie(req, res) {
 
 export async function getMovieTrailers(req, res) {
 
+  const{id}=req.params;
+  try {
+
+    const data = await fetcchFromTMDB(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`))
+  }
+  
+  catch (error) {
+
+  }
 }
