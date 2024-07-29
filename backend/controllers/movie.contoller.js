@@ -25,3 +25,8 @@ export async function getMovieTrailers(req, res) {
   }
   }
 }
+
+export async function getMovieDetails(req, res) {
+
+  
+}
