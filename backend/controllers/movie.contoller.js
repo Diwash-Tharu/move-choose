@@ -39,3 +39,15 @@ const {id}=req.params;
   }
   }
 }
+
+export async function getSimilarMovies(req, res) {
+  const {id}=req.params;
+  try{
+   
+  }
+  catch (error) {
+    if(error.message.includes("404")){
+      res.status(404).json({success:false, message: "Movie not found"});
+  }
+  }
+}
