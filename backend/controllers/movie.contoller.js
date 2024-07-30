@@ -52,3 +52,8 @@ export async function getSimilarMovies(req, res) {
   }
   }
 }
+
+export async function getMoviesByCatogeory(req, res) {
+
+  
+}
