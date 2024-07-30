@@ -54,6 +54,14 @@ export async function getSimilarMovies(req, res) {
 }
 
 export async function getMoviesByCatogeory(req, res) {
+const {catogeory}=req.params;
+try {
 
-  
+  const data = await fetcchFromTMDB(`https://api.themoviedb.org/3/movie/${catogeory}?language=en-US&page=1`);
+  res.json({success:true,content:data.results});
+}
+catch (error) {
+  res.status(500).json({success:false, message: "error from controller"+ error.message });
+}
+
 }
