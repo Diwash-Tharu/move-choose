@@ -1,5 +1,5 @@
 import express from 'express';
-import { getTrandingMovie, getMovieTrailers,getMovieDetails, getSimilarMovies } from '../controllers/movie.contoller.js';
+import { getTrandingMovie, getMovieTrailers,getMovieDetails, getSimilarMovies,getMoviesByCatogeory } from '../controllers/movie.contoller.js';
 import { get } from 'mongoose';
 
 const router = express.Router();
