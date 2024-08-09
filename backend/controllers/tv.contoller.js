@@ -48,7 +48,7 @@ export async function getSimilarTv(req, res) {
   }
   catch (error) {
     if(error.message.includes("404")){
-      res.status(404).json({success:false, message: "Movie not found"});
+      res.status(404).json({success:false, message: "Tv not found"});
   }
   }
 }
