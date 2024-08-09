@@ -6,7 +6,7 @@ export async function getTrandingTv(req, res) {
       const randomMovies=data.results[Math.floor(Math.random() * data.results.length)];
         res.json({success:true,content:randomMovies});
       } catch (error) {
-        res.status(500).json({success:false, message: "Tv series  from controller"+ error.message });
+        res.status(500).json({success:false, message: "Tv shwo  from tv.controller"+ error.message });
       }
 }
 
@@ -21,7 +21,7 @@ export async function getTvTrailers(req, res) {
       
       catch (error) {
         if(error.message.includes("404")){
-          res.status(404).json({success:false, message: "Tv series not found"});
+          res.status(404).json({success:false, message: "Tv showm not found"});
       }
       }
 }
@@ -35,7 +35,7 @@ export async function getTvDetails(req, res) {
       }
       catch (error) {
         if(error.message.includes("404")){
-          res.status(404).json({success:false, message: "Tv  series  not found"});
+          res.status(404).json({success:false, message: "Tv  show  not found"});
       }
       }
 }
@@ -48,7 +48,7 @@ export async function getSimilarTv(req, res) {
       }
       catch (error) {
         if(error.message.includes("404")){
-          res.status(404).json({success:false, message: "Tv series  not found"});
+          res.status(404).json({success:false, message: "Tv show not found"});
       }
       }
 }
@@ -61,7 +61,7 @@ export async function getTvByCatogeory(req, res) {
       res.json({success:true,content:data.results});
     }
     catch (error) {
-      res.status(500).json({success:false, message: "error from controller"+ error.message });
+      res.status(500).json({success:false, message: "error from tv.controller"+ error.message });
     }
 
 }
