@@ -35,5 +35,5 @@ app.listen(PORT, () => {
 
 
 // time of the video
-// 1:37:38 / 6:52:54
+// 1:54:06 / 6:52:54
 
