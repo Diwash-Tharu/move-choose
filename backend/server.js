@@ -20,7 +20,7 @@ app.use(express.json());
 // console.log("MONGO_URI",process.env.MONGO_URI);
 app.use("/api/v1/auth",authRoutes);
 app.use("/api/v1/movie",moviesRoutes);
-app.use("/api/v1/tvshows",tvRoutes);
+app.use("/api/v1/tv",tvRoutes);
 
 
 
