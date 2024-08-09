@@ -1,2 +1,3 @@
 import jwt from 'jsonwebtoken';
-import {}
+import { User } from '../models/user.model,js';
+import { ENC_VARS } from '../config/envVars.js';
