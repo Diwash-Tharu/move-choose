@@ -6,7 +6,7 @@ export async function getTrandingTv(req, res) {
    const randomMovies=data.results[Math.floor(Math.random() * data.results.length)];
     res.json({success:true,content:randomMovies});
   } catch (error) {
-    res.status(500).json({success:false, message: "error from controller"+ error.message });
+    res.status(500).json({success:false, message: "Tv from controller"+ error.message });
   }
 }
 
@@ -21,7 +21,7 @@ export async function getTvTrailers(req, res) {
   
   catch (error) {
     if(error.message.includes("404")){
-      res.status(404).json({success:false, message: "Movie not found"});
+      res.status(404).json({success:false, message: "Tv not found"});
   }
   }
 }
@@ -35,7 +35,7 @@ const {id}=req.params;
   }
   catch (error) {
     if(error.message.includes("404")){
-      res.status(404).json({success:false, message: "Movie not found"});
+      res.status(404).json({success:false, message: "Tv not found"});
   }
   }
 }
