@@ -9,10 +9,12 @@ import tvRoutes from './routes/tv.route.js';
 import { ENC_VARS } from './config/envVars.js';
 import { connect } from 'mongoose';
 import { connectDB } from './config/db.js';
+import cookieParser from 'cookie-parser';
 
 
 const app = express();
 const PORT = ENC_VARS.PORT;
+app.use(cookieParser());
 
 // will allows us to use the req.body in the web body
 app.use(express.json());
