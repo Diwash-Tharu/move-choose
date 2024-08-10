@@ -16,6 +16,12 @@ try{
         return res.status(401).json({success:false,message: 'You are not authorized to access this route'});
     }
     const user = await User.findById(decoded.userId).select('-password');
+
+    if(!user){
+        return res.status(401).json({success:false,message: 'You are not authorized to access this route'});    
+    }
+    
+
 }
 catch(error){
     console.log("error from protectRoute",error.message);
