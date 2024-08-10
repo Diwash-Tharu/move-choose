@@ -20,7 +20,8 @@ try{
     if(!user){
         return res.status(401).json({success:false,message: 'You are not authorized to access this route'});    
     }
-    
+    req.user=user;
+    next();
 
 }
 catch(error){
