@@ -9,7 +9,9 @@ try{
     if(!token){
         return res.status(401).json({message: 'You are not authorized to access this route'});
     }
-    
+
+    const decoded = jwt.verify(token, ENC_VARS.JWT_SECRET);
+
 }
 catch(error){
     console.log("error from protectRoute",error.message);
