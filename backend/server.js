@@ -10,7 +10,7 @@ import { ENC_VARS } from './config/envVars.js';
 import { connect } from 'mongoose';
 import { connectDB } from './config/db.js';
 import cookieParser from 'cookie-parser';
-
+import { protectRoute } from './middleware/protectRoute.js';
 
 const app = express();
 const PORT = ENC_VARS.PORT;
