@@ -7,6 +7,12 @@ export async function searchPerson(req, res) {
     try
     {
         const response = await fetcchFromTMDB(`https://api.themoviedb.org/3/search/person?query=${query}&include_adult=false&language=en-US&page=1`);
+        if(response.results.length === 0)
+        {
+            return res.status(404).send(null);
+            // return res.status(404).json({success:false, message: "No person found"});
+        }
+
         
         
     }
