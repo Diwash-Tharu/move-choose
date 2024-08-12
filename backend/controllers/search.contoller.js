@@ -14,6 +14,7 @@ export async function searchPerson(req, res) {
         }
 
         // for getting the seach history of the user of the person
+        // user data is getting from the protectRoute middleware
 
         await User.findByIdUpdate(req.user._id,{
             $push:{
