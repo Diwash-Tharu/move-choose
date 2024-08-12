@@ -13,9 +13,9 @@ export async function searchPerson(req, res) {
             // return res.status(404).json({success:false, message: "No person found"});
         }
 
-        res.status(200).json({success:true, data: response.results});
+        // for getting the seach history of the user of the person
         
-        
+        res.status(200).json({success:true, contect: response.results});
     }
     catch (error) {
         res.status(500).json({success:false, message: "error from searchPerson"+ error.message });
