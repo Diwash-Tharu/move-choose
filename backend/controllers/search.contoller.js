@@ -15,7 +15,17 @@ export async function searchPerson(req, res) {
 
         // for getting the seach history of the user of the person
 
-        await User.findByIdUpdate(req.user._id)
+        await User.findByIdUpdate(req.user._id,{
+            $push:{
+                searchHistory: {
+                    $each: [{type: 'person', query: query}],
+                    $position: 0,
+                    $slice: 10
+                }
+            }
+        }
+        )
+
         res.status(200).json({success:true, contect: response.results});
     }
     catch (error) {
