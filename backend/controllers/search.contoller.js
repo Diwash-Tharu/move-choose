@@ -13,6 +13,7 @@ export async function searchPerson(req, res) {
             // return res.status(404).json({success:false, message: "No person found"});
         }
 
+        res.status(200).json({success:true, data: response.results});
         
         
     }
