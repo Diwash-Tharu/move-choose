@@ -71,11 +71,12 @@ export async function searchMovie(req, res) {
 
     }
     catch (error) {
+        console.log("erros in seachmovies contoeller: ",error.message);
         res.status(500).json({success:false, message: "error from searchMovie"+ error.message });
-
     }
 }
 
 export async function searchTv(req, res) {
+
 
 }
