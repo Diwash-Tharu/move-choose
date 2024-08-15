@@ -81,6 +81,24 @@ const {query} = req.params;
 
     try{
         const response= await fetcchFromTMDB(`https://api.themoviedb.org/3/search/tv?query=${query}&include_adult=false&language=en-US&page=1`);
+   
+        if(response.results.length === 0)
+        {
+            return res.status(404).send(null);
+        }
+        await User.findByIdUpdate(req.user._id,{
+            $push:{
+                searchHistory: {
+                    id: response.results[0].id,
+                    image: response.results[0].poster_path,
+                    title:response.results[0].name,
+                    SearchType: 'tv show',
+                    createdAt: new Date()
+
+                }
+            }
+        }
+        )
     }
     catch (error) {
         res.status(500).json({success:false, message: "error from searchTv"+ error.message });
