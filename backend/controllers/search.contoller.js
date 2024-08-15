@@ -52,6 +52,19 @@ export async function searchMovie(req, res) {
             return res.status(404).send(null);
           
         }
+        await User.findByIdUpdate(req.user._id,{
+            $push:{
+                searchHistory: {
+                    id: response.results[0].id,
+                    image: response.results[0].poster_path,
+                    title:response.results[0].title,
+                    SearchType: 'movie',
+                    createdAt: new Date()
+
+                }
+            }
+        }
+        )
 
     }
     catch (error) {
