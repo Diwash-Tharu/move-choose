@@ -92,7 +92,7 @@ const {query} = req.params;
                     id: response.results[0].id,
                     image: response.results[0].poster_path,
                     title:response.results[0].name,
-                    SearchType: 'tv show',
+                    SearchType: 'tv',
                     createdAt: new Date()
 
                 }
@@ -101,6 +101,7 @@ const {query} = req.params;
         )
     }
     catch (error) {
+        console.log("erros in seachmovies contoeller: ",error.message);
         res.status(500).json({success:false, message: "error from searchTv"+ error.message });
     }
 
