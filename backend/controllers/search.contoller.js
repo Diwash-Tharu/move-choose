@@ -41,6 +41,8 @@ export async function searchPerson(req, res) {
         res.status(500).json({success:false, message: "error from searchPerson"+ error.message });
     }
 }
+
+
 export async function searchMovie(req, res) {
     const {query} = req.params;
     try{
@@ -65,6 +67,7 @@ export async function searchMovie(req, res) {
             }
         }
         )
+        res.status(200).json({success:true, contect: response.results});
 
     }
     catch (error) {
