@@ -80,7 +80,7 @@ export async function searchTv(req, res) {
 const {query} = req.params;
 
     try{
-        const response= awot fe
+        const response= await fetcchFromTMDB(`https://api.themoviedb.org/3/search/tv?query=${query}&include_adult=false&language=en-US&page=1`);
     }
     catch (error) {
         res.status(500).json({success:false, message: "error from searchTv"+ error.message });
