@@ -77,6 +77,13 @@ export async function searchMovie(req, res) {
 }
 
 export async function searchTv(req, res) {
+const {query} = req.params;
 
+    try{
+        const response= awot fe
+    }
+    catch (error) {
+        res.status(500).json({success:false, message: "error from searchTv"+ error.message });
+    }
 
 }
