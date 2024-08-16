@@ -106,3 +106,13 @@ const {query} = req.params;
     }
 
 }
+
+export async function getSearchHistory(req, res) {
+    try{
+        const user = await User.findById(req.user._id);
+        res.status(200).json({success:true, content: user.searchHistory});
+    }
+    catch (error) {
+        res.status(500).json({success:false, message: "error from getSearchHistory"+ error.message });
+    }
+}
