@@ -8,4 +8,6 @@ route.get("/person/:query", searchPerson);
 route.get("/move/:query", searchMovie);
 route.get("/tv/:query", searchTv);
 
+route.get("/person/:query", searchPerson);
+
 export default route;
