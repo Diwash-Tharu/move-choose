@@ -134,3 +134,6 @@ export async function removeItemFromSearchHistory(req, res) {
         res.status(500).json({success:false, message: "error from removeItemFromSearchHistory"+ error.message });
     }
 }
+
+export async function clearSearchHistory(req, res) {
+}
