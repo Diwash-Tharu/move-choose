@@ -109,10 +109,28 @@ const {query} = req.params;
 
 export async function getSearchHistory(req, res) {
     try{
-        const user = await User.findById(req.user._id);
-        res.status(200).json({success:true, content: user.searchHistory});
+        // const user = await user.findById(req.user._id);
+        res.status(200).json({success:true, content: req.user.searchHistory});
     }
     catch (error) {
         res.status(500).json({success:false, message: "error from getSearchHistory"+ error.message });
+    }
+}
+
+
+export async function removeItemFromSearchHistory(req, res) {
+    const {id} = req.params;
+    try{
+        await User.findByIdAndUpdate(req.user._id,{
+            $pull:{
+                searchHistory: {
+                    _id: id
+                }
+            }
+        })
+        res.status(200).json({success:true, message: "Item removed from search history"});
+    }
+    catch (error) {
+        res.status(500).json({success:false, message: "error from removeItemFromSearchHistory"+ error.message });
     }
 }
