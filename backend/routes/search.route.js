@@ -10,5 +10,8 @@ route.get("/move/:query", searchMovie);
 route.get("/tv/:query", searchTv);
 
 route.get("/history", getSearchHistory);
+// for deleting the search history
+route.delete("/history/:id", removeItemFromSearchHistory);
+
 
 export default route;
