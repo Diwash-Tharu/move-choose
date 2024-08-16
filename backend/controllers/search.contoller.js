@@ -137,3 +137,5 @@ export async function removeItemFromSearchHistory(req, res) {
 
 export async function clearSearchHistory(req, res) {
 }
+
+export async function getSearchHistory(req, res) {  }
